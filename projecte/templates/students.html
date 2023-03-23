@@ -10,15 +10,18 @@
 </head>
 <body>
     <div>
+        {% for e in st %}
         <div>
-            <label>Nom: </label> {{nombre}}
+            <label>Nom: </label> {{e.name}}
         </div>
         <div>
-            <label>Cognom: </label> {{surname}}
+            <label>Cognom: </label> {{e.surname}}
         </div>
         <div>
-            <label>Edat: </label> {{age}}
+            <label>Edat: </label> {{e.age}}
         </div>
+        <br>
+        {% endfor %}
     </div>
 </body>    
 
