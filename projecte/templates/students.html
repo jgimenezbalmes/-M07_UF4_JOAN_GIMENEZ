@@ -1,15 +1,15 @@
 {% extends 'index.html' %}
 {% block content %}
     <div>
-        {% for e in st %}
+        {% for a in st %}
         <div>
-            <label>Nom: </label> {{e.name}}
+            <label>Nom: </label> <a href="{% url 'student' e.id %}">{{a.name}}</a>
         </div>
         <div>
-            <label>Cognom: </label> {{e.surname}}
+            <label>Cognom: </label> {{a.surname}}
         </div>
         <div>
-            <label>Edat: </label> {{e.age}}
+            <label>Edat: </label> {{a.age}}
         </div>
         <br>
         {% endfor %}

@@ -3,7 +3,7 @@
     <div>
         {% for e in pr %}
         <div>
-            <label>Nom: </label> {{e.name}}
+            <label>Nom: </label> <a href="{% url 'teacher' e.id %}">{{e.name}}</a>
         </div>
         <div>
             <label>Cognom: </label> {{e.surname}}

@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<h1>Es mostra info del professor</h1>
+<ul>
+    <li>Nom: {{ teachers.name }}</li>
+    <li>Cognom: {{teachers.surname}} </li>
+    <li>Edat: {{teachers.age}} </li>
+    </br>
+    <a href="{% url 'teachers' %}">Ves enrere</a>
+</ul>
+{% endblock %}
