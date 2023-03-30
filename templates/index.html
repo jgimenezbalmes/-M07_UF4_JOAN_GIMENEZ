@@ -9,8 +9,9 @@
     <title>Index template</title>
 </head>
 <body>
-    <h1>Prova</h1>
-    <p>Text de prova</p>
+    {% include "head/header.html" %}
+    {% block content %}
+    {% endblock %}
 </body>    
 
 </html>
