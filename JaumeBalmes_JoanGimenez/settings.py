@@ -78,12 +78,13 @@ WSGI_APPLICATION = 'JaumeBalmes_JoanGimenez.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'test_db',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'practica_17',
+        'USER': 'root',
+        'PASSWORD': '',
         'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'PORT': '3306',
+        'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"},
     }
 }
 

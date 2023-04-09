@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import Context, loader
+from .models import Teacher
 
 # Create your views here.
 def index(request):
@@ -33,3 +34,4 @@ def student(request, pk):
         if i['id'] == pk:
             student_Obj = i
     return render(request, 'student.html', {'students': student_Obj})
+
