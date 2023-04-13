@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import Context, loader
 from .models import Teacher
+from .forms import TeacherForm
 
 # Create your views here.
 def index(request):
@@ -35,3 +36,7 @@ def student(request, pk):
             student_Obj = i
     return render(request, 'student.html', {'students': student_Obj})
 
+def user_form(request):
+    form = TeacherForm()
+    context = {'form':form}
+    return render(request, 'form.html', context)
