@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import Context, loader
 from .models import Teacher
 from .forms import TeacherForm
+
 
 # Create your views here.
 def index(request):
@@ -38,5 +39,17 @@ def student(request, pk):
 
 def user_form(request):
     form = TeacherForm()
+    context = {'form':form}
+    return render(request, 'form.html', context)
+
+def teacher_form(request):
+    form = TeacherForm()
+
+    if request.method == 'POST':
+        form = TeacherForm(request.POST)
+        if form.is_valid():
+
+            form.save()
+            return redirect('teacher_form')
     context = {'form':form}
     return render(request, 'form.html', context)
