@@ -12,7 +12,8 @@
             <label>Edat: </label> {{e.age}}
         </div>
         <td><a href="{% url 'update-teacher' e.id %}">EDIT</a></td>
-        <br>
+        <td><a href="{% url 'delete-teacher' e.id %}">DELETE</a></td>
+        <div><br></div>
         {% endfor %}
     </div>
 {% endblock %}

@@ -10,4 +10,5 @@ urlpatterns = [
     #path('user-form/', views.user_form, name='user_form'),
     path('teacher-create/', views.teacher_form, name='teacher_form'),
     path('update-teacher/<str:pk>/', views.update_teacher, name='update-teacher'),
+    path('delete-teacher/<str:pk>/', views.delete_teacher, name='delete-teacher')
 ]

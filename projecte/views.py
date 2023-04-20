@@ -72,3 +72,13 @@ def update_teacher(request, pk):
     
     context = {'form':form}
     return render(request, 'form.html', context)
+
+def delete_teacher(request, pk):
+    teacher = Teacher.objects.get(id = pk)
+
+    if request.method == 'POST':
+        teacher.delete()
+        return redirect('teachers_llista')
+
+    context = {'object':teacher}
+    return render(request, 'delete_object.html', context)
