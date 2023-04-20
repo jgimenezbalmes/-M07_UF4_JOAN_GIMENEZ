@@ -22,7 +22,7 @@ def teachers_llista(request):
 
 def teacher_agafaun(request, pk):
     teacher = Teacher.objects.get(id=pk)
-    context = {'teachers':teachers}
+    context = {'teacher':teacher}
     return render(request, 'teacher.html', context)
 
 def students(request):
@@ -68,7 +68,7 @@ def update_teacher(request, pk):
         form = TeacherForm(request.POST, instance=teacher)
         if form.is_valid():
             form.save()
-            return redirect('teachers')
+            return redirect('teachers_llista')
     
     context = {'form':form}
     return render(request, 'form.html', context)
