@@ -1,9 +1,9 @@
 {% extends 'index.html' %}
 {% block content %}
     <div>
-        {% for a in st %}
+        {% for a in students %}
         <div>
-            <label>Nom: </label> <a href="{% url 'student' e.id %}">{{a.name}}</a>
+            <label>Nom: </label> <a href="{% url 'student_un' a.id %}">{{a.name}}</a>
         </div>
         <div>
             <label>Cognom: </label> {{a.surname}}
@@ -11,6 +11,8 @@
         <div>
             <label>Edat: </label> {{a.age}}
         </div>
+        <td><a href="{% url 'update-student' a.id %}">EDIT</a></td>
+        <td><a href="{% url 'delete-student' a.id %}">DELETE</a></td>
         <br>
         {% endfor %}
     </div>
