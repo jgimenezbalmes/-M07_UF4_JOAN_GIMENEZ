@@ -15,20 +15,26 @@ professor =[{"id":"0","name":"Roger", "surname":"Sobrino", "age":"17"}, {"id":"1
 
 student = [{"id":"0","name":"Kevin", "surname":"Sama", "age":"17"}, {"id":"1","name":"Pol", "surname":"Iniesta", "age":"18"}, {"id":"2","name":"Soger", "surname":"Nobrino", "age":"11"}, {"id":"3","name":"Mich", "surname":"Rosado", "age":"20"}, {"id":"4","name":"Luis", "surname":"Castillo", "age":"20"}, {"id":"5","name":"Andrei", "surname":"Crasnaru", "age":"19"}]
 
-def teachers(request):
-    context = {'pr':professor}
+def teachers_llista(request):
+    teachers = Teacher.objects.all()
+    context = {'teachers':teachers}
     return render(request, 'teachers.html', context)
+
+def teacher_agafaun(request, pk):
+    teacher = Teacher.objects.get(id=pk)
+    context = {'teachers':teachers}
+    return render(request, 'teacher.html', context)
 
 def students(request):
     context = {'st':student}
     return render(request, 'students.html', context)
 
-def teacher(request, pk):
-    teacher_Obj = None
-    for i in professor:
-        if i['id'] == pk:
-            teacher_Obj = i
-    return render(request, 'teacher.html', {'teachers': teacher_Obj})
+# def teacher(request, pk):
+#     teacher_Obj = None
+#     for i in professor:
+#         if i['id'] == pk:
+#             teacher_Obj = i
+#     return render(request, 'teacher.html', {'teachers': teacher_Obj})
 
 def student(request, pk):
     student_Obj = None
@@ -37,10 +43,10 @@ def student(request, pk):
             student_Obj = i
     return render(request, 'student.html', {'students': student_Obj})
 
-def user_form(request):
-    form = TeacherForm()
-    context = {'form':form}
-    return render(request, 'form.html', context)
+# def user_form(request):
+#     form = TeacherForm()
+#     context = {'form':form}
+#     return render(request, 'form.html', context)
 
 def teacher_form(request):
     form = TeacherForm()
@@ -50,7 +56,7 @@ def teacher_form(request):
         if form.is_valid():
 
             form.save()
-            return redirect('teachers')
+            return redirect('teachers_llista')
     context = {'form':form}
     return render(request, 'form.html', context)
 
