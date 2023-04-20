@@ -1,9 +1,9 @@
 {% extends 'index.html' %}
 {% block content %}
     <div>
-        {% for e in pr %}
+        {% for e in teachers %}
         <div>
-            <label>Nom: </label> <a href="{% url 'teacher' e.id %}">{{e.name}}</a>
+            <label>Nom: </label> <a href="{% url 'teacher_un' e.id %}">{{e.name}}</a>
         </div>
         <div>
             <label>Cognom: </label> {{e.surname}}
@@ -11,7 +11,9 @@
         <div>
             <label>Edat: </label> {{e.age}}
         </div>
-        <br>
+        <td><a href="{% url 'update-teacher' e.id %}">EDIT</a></td>
+        <td><a href="{% url 'delete-teacher' e.id %}">DELETE</a></td>
+        <div><br></div>
         {% endfor %}
     </div>
 {% endblock %}

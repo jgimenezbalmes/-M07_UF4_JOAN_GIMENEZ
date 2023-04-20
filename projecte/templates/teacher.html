@@ -4,10 +4,10 @@
 
 <h1>Es mostra info del professor</h1>
 <ul>
-    <li>Nom: {{ teachers.name }}</li>
-    <li>Cognom: {{teachers.surname}} </li>
-    <li>Edat: {{teachers.age}} </li>
+    <li>Nom: {{ teacher.name }}</li>
+    <li>Cognom: {{teacher.surname}} </li>
+    <li>Edat: {{teacher.age}} </li>
     </br>
-    <a href="{% url 'teachers' %}">Ves enrere</a>
+    <a href="{% url 'teachers_llista' %}">Ves enrere</a>
 </ul>
 {% endblock %}

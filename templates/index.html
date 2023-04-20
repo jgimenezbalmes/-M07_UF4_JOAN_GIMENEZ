@@ -10,7 +10,8 @@
 </head>
 <body>
     {% include "head/header.html" %}
-    <a href="{% url 'user_form' %}">Afegir Usuaris</a>
+    <a href="{% url 'teacher_form' %}">Afegir Teachers</a>
+    <a href="{% url 'student_form' %}">Afegir Students</a>
     {% block content %}
     {% endblock %}
 </body>    
