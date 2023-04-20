@@ -11,6 +11,7 @@
         <div>
             <label>Edat: </label> {{e.age}}
         </div>
+        <td><a href="{% url 'update-teacher' teacher.id %}">EDIT</a></td>
         <br>
         {% endfor %}
     </div>

@@ -50,6 +50,19 @@ def teacher_form(request):
         if form.is_valid():
 
             form.save()
-            return redirect('teacher_form')
+            return redirect('teachers')
+    context = {'form':form}
+    return render(request, 'form.html', context)
+
+def update_teacher(request, pk):
+    teacher = Teacher.objects.get(id=pk)
+    form = TeacherForm(instance=teacher)
+
+    if request.method == 'POST':
+        form = TeacherForm(request.POST, instance=teacher)
+        if form.is_valid():
+            form.save()
+            return redirect('teachers')
+    
     context = {'form':form}
     return render(request, 'form.html', context)
